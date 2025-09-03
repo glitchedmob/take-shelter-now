@@ -1,6 +1,32 @@
 <script lang="ts">
-	import { Button } from '$lib/components/ui/button';
+	import { Header } from '$lib/components/ui/Header';
+	import { Sheet } from '$lib/components/ui/Sheet';
+	import GetLocation from '$lib/components/ui/GetLocation/GetLocation.svelte';
+	import ShelterList from '$lib/components/ui/ShelterList/ShelterList.svelte';
+	import { hasLocation } from '$lib/stores/global';
 </script>
 
-<h1>Take Shelter Now</h1>
-<Button href="https://docs.opensgf.org/s/take-shelter-now-overview" target="_blank">Docs</Button>
+<div class="container">
+	<Header />
+	<Sheet>
+		{#if !$hasLocation}
+			<GetLocation />
+		{:else}
+			<ShelterList />
+		{/if}
+	</Sheet>
+</div>
+
+<style>
+	.container {
+		height: 100vh;
+		overflow: hidden;
+		position: relative;
+		background-color: #e2e0e1;
+		margin: 0;
+	}
+	.brand-logo {
+		height: 100px;
+		width: auto;
+	}
+</style>
