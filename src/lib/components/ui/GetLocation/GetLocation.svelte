@@ -1,5 +1,6 @@
 <script>
 	import { hasLocation } from '$lib/stores/global';
+	import { Button } from '$lib/components/ui/button';
 
 	function enableLocation() {
 		hasLocation.set(true);
@@ -7,31 +8,15 @@
 </script>
 
 <div>
-	<button class="getLocationButton" on:click={() => enableLocation()}>
+	<Button
+		onclick={enableLocation}
+		class="flex h-[58px] w-full items-center justify-center rounded-lg bg-[#0892d2] text-white"
+	>
 		<img
 			src="https://res.cloudinary.com/du9tnv8ss/image/upload/v1756782708/navigation_bgtfde.png"
-			class="locationIcon"
 			alt=""
+			class="mr-2 h-6 w-6"
 		/>
-		Current Location</button
-	>
+		Current Location
+	</Button>
 </div>
-
-<style>
-	.getLocationButton {
-		background-color: #0892d2;
-		height: 58px;
-		width: 100%;
-		border-radius: 8px;
-		display: flex;
-		flex-direction: center;
-		align-items: center;
-		justify-content: center;
-		color: #fff;
-	}
-	.locationIcon {
-		height: 24px;
-		width: 24px;
-		margin-right: 8px;
-	}
-</style>
