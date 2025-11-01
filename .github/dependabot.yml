@@ -3,15 +3,15 @@ updates:
   - package-ecosystem: npm
     directory: /
     schedule:
-      interval: weekly
+      interval: monthly
     groups:
       npm:
-        patterns: ['*']
+        patterns: [ "*" ]
   - package-ecosystem: github-actions
     directory: /
     schedule:
-      interval: weekly
-    target-branch: development
+      interval: monthly
+    target-branch: main
     groups:
       actions:
-        patterns: ['*']
+        patterns: [ "*" ]
